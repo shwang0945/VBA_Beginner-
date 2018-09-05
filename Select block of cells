@@ -1,0 +1,33 @@
+Sub AddFilmToEndofList()
+  
+  Worksheets("Sheet1").Activate
+  Range("A1").Select
+  
+  'jump to the last cell in this roll
+  ActiveCell.End(xlDown).Select
+  'move down one step
+  ActiveCell.Offset(1,0).Select
+  
+  'Combine two lines
+  range("A1").End(xlDown).Offset(1,0).Select
+  
+  ActiveCell.Value = ActiveCell.offset(-1,0).Value + 1
+  ActiveCell.offset(0,1).Value = "Lincoln"
+  ActiveCell.offset(0,2).Value = #11/9/2018#
+ 
+End Sub
+
+
+Sub SelectVariableCol()
+
+  range("A3", range("A1").End(xlDown)).Select
+  Selection.Font.Italic = True
+  range("B3", range("B2").End(xlDown)).Font.Color = rgbDarkBlue
+  
+  range("A3", range("A1").End(xlDown)).End(xlToRight).Select
+  Selection.interior.color=rgbAlicBlue
+  
+End Sub
+
+
+
