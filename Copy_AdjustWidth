@@ -1,0 +1,27 @@
+Sub CopyFilmList()
+
+  Worksheets("Sheet1").Activate
+  Range("A1").CurrentRegion.Copy
+  
+  Worksheets("Sheet2").Activate
+  Range("A1").PasteSpecial 
+
+  Worksheets("Sheet3").Activate
+  Range("A1").PasteSpecial 
+  Range("A1").PasetSpecial xlPasteColumnWidth
+
+End Sub
+
+
+Sub CopyFilmListMethod2 ()
+  
+  Worksheets("Sheet1").Activate
+  Range("A1").CurrentRegion.Copy Worksheets("Sheet4").Range("A1")
+  
+  Worksheets("Sheet4").Activate
+  Columns("B:C").width =20
+  'Columns("B:C").AutoFit
+  
+  Range("B:C").EntireColumn.AutoFit
+  
+End Sub
