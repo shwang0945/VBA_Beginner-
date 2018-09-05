@@ -1,0 +1,14 @@
+Sub SelectMultipleCells ()
+  
+  Range("A1:C1").Select
+  Selection.Interior.Color = rgbDarkBlue
+  
+  Range("A1:C1").Font.Color = rgbWhite
+  
+  [A1:C1].Font.Size = 14
+  
+  Range("A2","C2").Interior.Color = rgbLightBlue
+  
+  Range(Cells(2,1), Cells(2,3)).Font.Color = rgbDarkBlue
+  
+End Sub
