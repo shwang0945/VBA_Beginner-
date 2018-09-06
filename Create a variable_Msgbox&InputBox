@@ -1,0 +1,60 @@
+Option Explicit
+
+Dim NewFilmName as string
+Dim FilmDate as Date
+Dim FilmLength As Integer
+Dim FilmID As Integer
+
+
+SUb GetUserInput()
+
+ NewFilmName = inputBox("Type in a new film name")
+ FilmDate = inputBox("Type in a new film date")
+ FilmLength = inputBox("Type in a new film length")
+ 
+ Call AddNewFilm
+ 
+ 
+End Sub
+  
+---------------------
+Sub AddNewFilm()
+  
+  Worksheets("Sheet1").Activate
+  Range("B2").End(xlDown).offset(1,0).Select
+  ActiveCell.Value = "American Hustle"
+  MsgBox "American Hustle was added to the list"
+  
+End Sub
+
+
+Sub AddNewFilm()
+  
+  NewFilmName = "American Hustle"
+  
+  Worksheets("Sheet1").Activate
+  Range("B2").End(xlDown).offset(1,0).Select
+  ActiveCell.Value = NewFilmName
+  MsgBox NewFilmName "was added to the list"
+  
+End Sub
+
+
+
+Sub AddNewFilm()
+  
+  Worksheets("Sheet1").Activate
+  Range("B2").End(xlDown).offset(1,0).Select
+
+  FilmID = ActiveCell.Offset(-1,-1).Value
+  FilmID = FilmID +1
+  
+  ActiveCell.Offset(0,-1).Value = FilmID
+  ActiveCell.Value = NewFilmName
+  ActiveCell.Offset(0,1).Value = FilmDate
+  ActiveCell.Offset(0,2).Value = FilmLength
+  MsgBox NewFilmName "was added to the list"
+  
+End Sub
+
+
