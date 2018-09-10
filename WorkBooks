@@ -1,0 +1,54 @@
+Sub MethodsForRefrringToSheets ()
+  
+  Worksheets("Sheet1").Select
+  Worksheets(3).Select
+  Sheets(4).Select    'This is very confusing
+  
+End Sub
+
+Sube AddNewSheets()
+
+Worksheets.Add after: = Worksheets("Sheet3")
+Worksheets.Add after:= Sheets(1)
+
+End Sub
+
+Sub UsingActiveWorkBook ()
+
+  Workbooks("Book2.xlsx").Activate
+  ActiveWorkbook.close
+  
+  ActiveWorkbook.Close True "Save Changes
+  
+End Sub
+
+
+
+Sub OpeningAnExistingWorkbook()
+
+  Workbooks.Open "C:\Users\Andrew.Gouls\Desktop\Book2.xlsx"
+  
+End Sub
+
+
+Sub CreatingANewWorkbook ()
+
+  Workbooks.Add "Top Movies 2012.xltm"
+  
+End Sub
+
+
+Sub SavingAWorkbookThatHasAlreadyBeenSaved ()
+
+  Workbooks("Book2.xlsx").Save
+  
+End Sub
+
+
+Sub SavingAnUnsavedWrkbook ()
+
+  Workbooks.Add
+  ActiveWorkbook.SaveAs "C:\Test workbook.xlsm"
+  
+End Sub
+
