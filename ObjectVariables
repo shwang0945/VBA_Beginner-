@@ -1,0 +1,53 @@
+Sub StoreRangeOfCells()
+
+  Dim FilmNameCells As Range
+  Set FilmNameCells = Range("B3:B15") / Range("B3", Range("B3").End(xlDown))
+  FilmNameCells.Font.Color = rgbBlue
+  
+End SubSub
+
+
+Sub ReferencingAWorksheetInAVariable (0
+
+  Dim MyNewSheet As Worksheet
+  Worksheets.Add
+  Set MyNewSheet = ActiveSheet
+  Sheet1.Activate
+  Range("A1").CurrentRegion.Copy
+  
+  MyNewSheet.Activate
+  ActiveCell.PasteSpecial
+
+End Sub
+
+
+Sub OtherEgs()
+
+  Dim MyNewBook As Workbook
+  set MyNewBook = Workbooks.Add
+  Dim MyNewChart As Chart
+  set MyNewChart = Charts.Add
+  
+End Sub
+
+
+
+Sub FindingARange()
+
+  Dim FilmToFind As String
+  Dim FilmCell As Range
+  
+  FilmToFind = InputBox("Type in a film name")
+  set FilmCell = Range("B3", range("B3").end(xlDown).Find(FilmtoFind)
+  
+  if FilmCell Is Nothing Then
+    MsgBox FilmToFind & "was not found"
+  Else
+  MsgBox FilmCell.Value & "was found in" & FillmCell.Address
+  End If
+  
+  
+End Sub
+
+ 
+
