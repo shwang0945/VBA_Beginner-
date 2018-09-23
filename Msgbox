@@ -1,0 +1,47 @@
+Sube SimpleMessage()
+  
+  MsgBox Prompt: ="I like Pizza", Button:=vbInformation, Title:= "Food message"
+  
+End Sub
+
+Sube SimpleMessage()
+  
+  MsgBox "I like Pizza", vbInformation, "Food message"
+  
+End Sub
+
+
+Sub DateMessage()
+
+  MsgBox "The date is " & Date & "." & vbnewline & "The weather is rainy."
+  
+End Sub
+
+
+Sub MovieMessage()
+
+  Range("B7").Select
+  
+  msgbox ActiveCell.Value & "was released on" & ActiveCell.Offset(0,1).Value
+  
+End Sub
+
+
+### To get Msgbox from input###
+
+
+Sube SimpleQuestion()
+  
+  dim buttomclicked as vbmsgboxResult
+  
+  MsgBox Prompt: ="I like Pizza", Button:=vbInformation, Title:= "Food message"
+  Buttonclicked = MsgBox ("Do you like pizza?", vbQuestion + vbYesNo, "Food Question ")
+  If Buttonclicked = vbYes Then
+    Then MsgBox "Yes! Pizzas are great!!",vbExclamation
+   Else
+    MsgBox "Why Not. Pizza is great!", vbCritical
+  End if
+    
+  
+  
+End Sub
