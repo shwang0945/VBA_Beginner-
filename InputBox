@@ -1,0 +1,111 @@
+Option Explicit
+
+Sub WhatIsYourName()
+   
+  Range("A1").value = InputBox ( "Please type in your name", "Personal Details", " Enter name here...")
+
+End Sub
+  
+  
+  
+Sub WhatIsYourName1()
+   
+  dim YourName as string
+  YourName = InputBox ( "Please type in your name", "Personal Details", " Enter name here...")
+  MsgBox "Hello" & YourName
+
+End SUb
+
+
+Sub WhatIsYourName2()
+
+dim YourName as string
+  YourName = InputBox ( "Please type in your name", "Personal Details", " Enter name here...")  
+  
+  If YourName = "" Then
+    MsgBox "You didn't enter a name ", vbExclamation
+  else 
+    MsgBox "Hello" & YourName
+  end if
+
+
+End Sub
+
+
+
+Sub GenericInputbox()
+
+  Dim FilmName As String
+  Dim FilmDate As Date
+  Dim FilmLength As Integer
+  
+  FilmName = InputBox ("Enter a Film Name")
+  FilmDate = InputBox ("Enter a Film Date")
+  FilmLength = InputBox ("Enter a Film Length")
+  
+  Range("A2").End(XlDown).Offset(1,0).Value = FilmName
+  Range("A2").End(XlDown).Offset(0,1).Value = FilmDate
+  Range("A2").End(XlDown).Offset(0,2).Value = FilmLength
+  
+End Sub
+
+Sub ApplicationInputBox ()
+  Dim FilmName As String
+  Dim FilmLength As Integer
+  
+  FilmName = Application.inputbox("Enter a Film Name")
+  FilmDate = Application.InputBox (Prompt:="Enter a Film Date", Type:=1)
+  
+  Range("A2").End(XlDown).Offset(1,0).Value = FilmName
+  Range("A2").End(XlDown).Offset(0,1).Value = FilmDate
+  
+End Sub
+
+
+Sub EnterAFormular ()
+
+  Dim Myformular As String
+  Dim FormulaCell As Range
+  
+  Myformular = Application.InputBox (Prompt:="Enter a Formular", Type:=0, Default:"= SUM(")
+  
+  set formulaCell = application.inputBox(Prompt:="Choose formula cell", type: = 8)
+  
+  formulaCell. FormulaLocal = Myformula 
+ 
+  
+End Sub
+  
+  
+Sub CopyData ()
+
+  Dim CopyRange As Range
+  Dim DestinationRange As Range
+  
+  set CopyRange = Application.InputBox(Prompt: =" Choose cells to copy",type:=8)
+  set DestinationRange = Application.InputBox(Prompt:=" Choose destination cells", type := 8)
+  
+  copyrange.copy DestinationRange
+
+End Sub
+
+
+Sub ReturnArray()
+
+  Dim FilmLengths () As Variant
+  Dim LoopCounter As long
+  Dim ResultRange As Range
+  
+  filmlengths = Application. inputbox(Prompt:="Choose Lengths to convert", Type:=64)
+  for loopcounter = lbound(filmlengths, 1) To UBound(FilmLengths,1)
+    filmlengths ( loopcounter, 1) = int ( filmlengths(loopcounter,1)/60)&" hours"_
+      & ( filmlengths(loopcounter,1)/60) mode 60) & "minutes"
+    
+  Next LoopCounter
+  
+  Set ResultRange = Application.InputBox(Prompt:="Choose where to put your result", type =8)
+  Set ResultRange = range(ResultRange, ResultRange.Offset(UBound(FilmLengths,1),1) -1,0)
+  
+  ResultRange = FilmLengths
+  
+End Sub
