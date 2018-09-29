@@ -1,0 +1,10 @@
+Sub FormatFilmReleaseDates()
+  With Range ("C3:C15")
+    .Interior.Color = rgbAquamarine
+    .Font.Color=rgbRed
+    .Font.Size = 12
+    .NumberFormat = "dddd dd mmm yyyy"
+   End With
+
+End Sub
+ 
