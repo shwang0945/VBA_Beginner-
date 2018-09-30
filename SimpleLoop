@@ -1,0 +1,8 @@
+Sub SimpleDoLoop()
+  Rangee ("A3").Select
+  Do 
+    If ActiveCell.value = ""Then Exit Do
+    ActiveCell.Offset(1,0).Select
+  Loop
+  
+ End Sub
