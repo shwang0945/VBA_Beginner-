@@ -1,0 +1,26 @@
+Sub FindFilm()
+  Range("B3:B15").Find("Ted").Select
+
+End Sub
+
+
+Sub FindFilm()
+  Dim FilmCell As Range
+  Dim SearchRange As Range
+  Dim FilmName As String
+  Dim FirstFilmCell As String
+ 
+ Set SearchRange =range ("B3", Range("B2").End(xlDown))
+ Set FilmCell = RSearchRange.Find(What:="Ted", MatchCase:= True, LookAt:=xlWhole)
+
+  If FilmCell Is Nothing Then
+    MsgBox "No film was found"
+  Else 
+    FirstFilmCell = FilmCell.Address
+    Do
+     FilmCell.Select
+     Set filmCell = searchrange.FindNext(filmCell)
+    Loop While FilmCell.Address <> FirstFilmCell
+    
+   End If 
+End Sub
