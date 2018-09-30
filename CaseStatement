@@ -1,0 +1,26 @@
+Option Explicit
+
+Sub TestingFilmLength()
+  Dim FilmName As String
+  Dim FilmLength As Integer
+  Dim FilmDescription As String
+  
+  Range("B11").Select
+  
+  FilmName = ActiveCell.Value
+  FilmLength = ActivateCell.Offset(0,2).Value
+  
+  Select Case FilmLength
+    Case Is < 100
+      FilmDescription = "Short"
+    Case Is <120
+      FilmDescription = "Medium"
+    Case Is <150
+      FilmDescription = "Long"
+    Case Else
+      FilmDescription = "Epic"
+   End Select
+   
+   MsgBox FilmName & " is " & FilmDescription
+   
+End Sub
