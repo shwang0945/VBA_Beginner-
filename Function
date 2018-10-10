@@ -1,0 +1,18 @@
+Option Explicit
+
+Function CustomDate (DateToFormate As Date, Optional IncludeTime As Boolean = False) As String
+  
+  If IncludeTime Then
+    CustomDate = Formate(DateToFormate, "dddd dd mmmm yyyy hh:mm:ss")
+  Else
+    CustomDate = Formate(DateToFormate, "dddd dd mmmm yyyy")
+  End If
+  
+End Funtion
+
+Sub CreateNewSheet()
+
+  Worksheets.Add
+  range("A1").Value = "Created on" & customDate(Date, True)
+  
+End Sub
