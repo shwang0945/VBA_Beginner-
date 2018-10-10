@@ -1,0 +1,30 @@
+Sub FindFilm()
+
+  Dim FilmName As String
+  Dim FilmDate As Date
+  Dim ButtonClicked As VbMsgBoxResult
+  
+GuessAgain:
+  
+  FilmName = InputBox("Type in a film name")
+  
+  Sheet1.Activate
+  
+  On Error GOTO FilmNotFound
+  Range("B3:B15").Find(FilmName).Select
+  On Error GOTO 0  ## To turn off the custom error handeler
+  
+  FilmName= ActiveCell.Value
+  FilmDate = ActiveCell.Offset(0,1).Value
+  
+  MsgBox FilmName & " was released on " & FilmDate
+  
+  Exit Sub
+  
+FilmNotFound:
+ 
+ ButtonClicked = MsgBox (FilmName & " was not found", vbRetryCancel)
+  
+ if ButtonClicked = vbRetry then  Resume GuessAgain                    ## Resume back from the first beginning
+  
+End Sub
